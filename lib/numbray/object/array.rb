@@ -4,7 +4,7 @@ module Numbray
   
   #
   #
-  module Fixnum
+  module Object
     
     #
     #

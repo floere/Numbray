@@ -113,12 +113,12 @@ static inline VALUE object_memory_efficient_intersect(VALUE self, VALUE unsorted
   return result_array;
 }
 
-VALUE p_mNumbray, p_mFixnum, p_cArray;
+VALUE p_mNumbray, p_mObject, p_cArray;
 
 void Init_numbray() {
   p_mNumbray = rb_define_module("Numbray");
-  p_mFixnum = rb_define_module_under(p_mNumbray, "Fixnum");
-  p_cArray = rb_define_class_under(p_mFixnum, "Array", rb_cObject);
+  p_mObject = rb_define_module_under(p_mNumbray, "Object");
+  p_cArray = rb_define_class_under(p_mObject, "Array", rb_cObject);
   
   rb_define_singleton_method(p_cArray, "memory_efficient_intersect", object_memory_efficient_intersect, 1);
 }
