@@ -21,6 +21,9 @@ static VALUE rb_ary_length(VALUE ary) {
   return LONG2NUM(length);
 }
 
+// Object class methods.
+//
+
 // This version:
 //  * can operate on good old Ruby objects.
 //  * orders the arrays by ascending size, small to large.
@@ -113,12 +116,21 @@ static VALUE object_memory_efficient_intersect(VALUE self, VALUE unsorted_array_
   return result_array;
 }
 
-VALUE p_mNumbray, p_mObject, p_cArray;
+// Fixnum class methods.
+//
+
+VALUE p_mNumbray;
+VALUE p_mNumbrayObject, p_cNumbrayObjectArray;
+VALUE p_mNumbrayFixnum, p_cNumbrayFixnumArray;
 
 void Init_numbray() {
   p_mNumbray = rb_define_module("Numbray");
-  p_mObject = rb_define_module_under(p_mNumbray, "Object");
-  p_cArray = rb_define_class_under(p_mObject, "Array", rb_cObject);
+
+  p_mNumbrayObject = rb_define_module_under(p_mNumbray, "Object");
+  p_cNumbrayObjectArray = rb_define_class_under(p_mNumbrayObject, "Array", rb_cObject);
   
-  rb_define_singleton_method(p_cArray, "memory_efficient_intersect", object_memory_efficient_intersect, 1);
+  rb_define_singleton_method(p_cNumbrayObjectArray, "memory_efficient_intersect", object_memory_efficient_intersect, 1);
+  
+  p_mNumbrayFixnum = rb_define_module_under(p_mNumbray, "Fixnum");
+  p_cNumbrayFixnumArray = rb_define_class_under(p_mNumbrayFixnum, "Array", rb_cObject);
 }

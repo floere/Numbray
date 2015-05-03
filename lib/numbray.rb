@@ -1,5 +1,5 @@
 begin
-  require ::File.expand_path '../numbray/numbray', __FILE__
+  require_relative 'numbray/numbray'
 rescue LoadError => e
   # Give up and inform the user.
   #
@@ -16,3 +16,6 @@ The problem reported by the compiler was:
 NOTE
   exit 1
 end
+
+require_relative 'numbray/object/array'
+require_relative 'numbray/fixnum/array'
