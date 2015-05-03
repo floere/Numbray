@@ -1,6 +1,6 @@
 #include "ruby.h"
 
-static inline VALUE ary_make_hash(ary1, ary2)
+static VALUE ary_make_hash(ary1, ary2)
     VALUE ary1, ary2;
 {
     VALUE hash = rb_hash_new();
@@ -16,7 +16,7 @@ static inline VALUE ary_make_hash(ary1, ary2)
     }
     return hash;
 }
-static inline VALUE rb_ary_length(VALUE ary) {
+static VALUE rb_ary_length(VALUE ary) {
   long length = RARRAY_LEN(ary);
   return LONG2NUM(length);
 }
