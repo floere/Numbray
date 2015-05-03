@@ -26,7 +26,7 @@ static VALUE rb_ary_length(VALUE ary) {
 //  * orders the arrays by ascending size, small to large.
 //  * calls the & consecutively for all arrays.
 //
-static inline VALUE object_memory_efficient_intersect(VALUE self, VALUE unsorted_array_of_arrays) {
+static VALUE object_memory_efficient_intersect(VALUE self, VALUE unsorted_array_of_arrays) {
   // Counters.
   //
   long i, j;
